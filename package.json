@@ -25,7 +25,7 @@
         "views": {
             "toolbar": [
                 {
-                    "command": "start",
+                    "command": "showView",
                     "title": "OneForAll",
                     "icon": "./src/assets/icon/DNS.svg",
                     "tips":"OneForAll"
