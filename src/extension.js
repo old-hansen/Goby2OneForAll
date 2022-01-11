@@ -9,16 +9,21 @@ function activate (content) {
 
     //显示工具首页
     goby.registerCommand('showView', function (content) {
-        //加载主页html
+        //设置主页html路径
         let path = require('path');
         let url = path.join(__dirname,'./page/index.html');
 
-        //检测python环境和oneforall是否安装成功
+        //检测python环境
         let python_path = config["python3"]["default"];
-        alert(python_path);
-        let OneForAll_path = config["oneforall.py"]["default"];
-        alert(OneForAll_path);
+        // alert(python_path);
+        // goby.showErrorMessage('未配置Python3路径');
 
+        //检测oneforall路径
+        let OneForAll_path = config["oneforall.py"]["default"];
+        if(OneForAll_path == null){
+            goby.showErrorMessage('未配置OneForAll路径');
+            return;
+        }
 
         //渲染页面
         goby.showIframeDia(url,'OneForAll',800,600);
