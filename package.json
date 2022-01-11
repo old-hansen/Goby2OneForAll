@@ -1,18 +1,34 @@
 {
-    "name": "oneforall",
-    "publisher": "Goby Team",
-    "description": "helloWorld by Goby Team",
+    "name": "OneForAll",
+    "publisher": "Hansen",
+    "description": "Goby 2 OneForAll , OneForAll is a powerful subdomain integration tool",
     "version": "0.1.0",
-    "icon": "",
-    "engines": "1.6.170",
+    "icon": "./src/assets/icon/DNS.svg",
+    "engines": "1.8.228",
     "initEvents": "",
     "main": "./src/extension.js",
     "contributes": {
+        "configuration": {
+            "oneforall.py" :{
+                "type": "string",
+                "default": null,
+                "description": "请输入 oneforall.py 的路径",
+                "fromDialog": true
+            },
+            "python3": {
+                "type": "string",
+                "default": "python3",
+                "description": "请输入在当前环境下的Python3或位置,也可以是绝对路径",
+                "fromDialog": true
+            }
+        },
         "views": {
-            "scanDia": [
+            "toolbar": [
                 {
-                    "command": "hello",
-                    "title": "hello"
+                    "command": "start",
+                    "title": "OneForAll",
+                    "icon": "./src/assets/icon/DNS.svg",
+                    "tips":"OneForAll"
                 }
             ]
         }

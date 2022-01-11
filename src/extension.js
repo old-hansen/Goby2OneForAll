@@ -1,6 +1,8 @@
 function activate (content) {
-    goby.registerCommand('hello', function (content) {
-        goby.showInformationMessage("helloWorld");
+    goby.registerCommand('start', function (content) {
+        let path = require('path');
+        let url = path.join(__dirname,'./page/index.html');
+        goby.showIframeDia(url,'OneForAll',666,600);
     });
 }
 
