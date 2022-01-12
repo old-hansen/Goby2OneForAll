@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +9,14 @@
 <body>
     <a>域名</a>
     <input type="text">
-    <button id="btn-start"> 开始 </button>
+    <button id="btn-start" onclick="startOneForAll('baidu.com')"> 开始 </button>
 </body>
+
+<!-- 引入jQuery -->
+<script src="../assets/js/jquery-3.3.1.min.js"></script>
+
+<script src="../assets/js/index.js"></script>
+
 <script>
 
     //TODO 1、域名校验（空、格式等情况）
