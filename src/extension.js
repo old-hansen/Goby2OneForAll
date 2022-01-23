@@ -18,11 +18,11 @@ function activate(content) {
             var python_path = config.python3.default;
             var OneForAll_path = config["oneforall.py"]["default"];
 
-            // alert(python_path);
+            alert(python_path);
             // goby.showErrorMessage('未配置Python3路径');
 
             //检测oneforall路径
-            if (OneForAll_path == null) {
+            if (OneForAll_path == null || OneForAll_path === '') {
                 goby.showErrorMessage('未配置OneForAll路径');
                 return;
             }

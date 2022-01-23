@@ -6,9 +6,9 @@ function checkDomain(domain) {
 function startOneForAll(domain) {
 
     //获取系统函数
-    const fs = require('fs');
-    const os = require('os');
-    var cp = require('child_process');
+    const fs = parent.require('fs');
+    const os = parent.require('os');
+    var cp = parent.require('child_process');
     let os_type = os.type();
 
     // 获取gobyAPI
