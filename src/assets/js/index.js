@@ -1,7 +1,11 @@
 //校验域名格式
 function checkDomain(domain) {
-    var reg = /^(?=^.{3,255}$)[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+$/;
-    return reg.test(domain);
+    // let reg = /^(?=^.{3,255}$)[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+$/;
+    let reg = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,62}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/;
+
+    let re = new RegExp(reg);
+    alert('domain = ' + domain);
+    return re.test(domain);
 }
 
 // 运行OneForAll
