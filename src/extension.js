@@ -27,6 +27,18 @@ function activate(content) {
                 return;
             }
         }
+
+        getOS(){
+            return os;
+        }
+
+        getFS(){
+            return fs;
+        }
+
+        getCP(){
+            return cp;
+        }
     }
 
     if(!window.OneForAll){
