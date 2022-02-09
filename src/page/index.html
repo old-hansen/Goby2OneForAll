@@ -24,13 +24,13 @@
     //定义OneForAll API
     let OneForAll = parent.OneForAll;
     //获取域名
-    const domain = document.getElementById("domain").value;
+
 
     //TODO 1、域名校验（空、格式等情况）
     //绑定开始按钮
     let btn1 = document.getElementById("btn-start");
     btn1.onclick = function (){
-
+        const domain = document.getElementById("domain").value;
         if (!checkDomain(domain)){
             alert('域名格式不正确，请检查格式');
             return;
