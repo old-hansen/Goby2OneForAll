@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OneForAll</title>
 </head>
+
+<!-- 引入jQuery -->
+<script src="../assets/js/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/index.js"></script>
+
 <body>
     <a>域名</a>
     <input type="text" id="domain" name="domain">
     <button id="btn-start"> 开始 </button>
-    <button id="btn-openDir" onclick="openDir()"> 打开目录 </button>
+    <button id="btn-openDir" onclick="openDir()"> 打开OneForAll目录 </button>
+    <button id="btn-test"> 测试 </button>
 </body>
-
-<!-- 引入jQuery -->
-<script src="../assets/js/jquery-3.3.1.min.js"></script>
-
-<script src="../assets/js/index.js"></script>
 
 <script>
     //goby API
@@ -39,9 +40,9 @@
         startOneForAll(domain);
     }
 
-    //TODO 2、运行状态展示
+    //TODO 2、运行状态展示（方案1[Easy]、直接显示CMD窗口进行显示 2[Hard]、将命令行输出到页面，log日志保存本地）
 
-    //TODO 3、结果展示
+    //TODO 3、结果展示（咕咕咕...）
     
 </script>
 </html>
