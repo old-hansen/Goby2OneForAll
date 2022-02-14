@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneForAll</title>
+    <title>Goby2OneForAll</title>
 </head>
 
 <!-- 引入jQuery -->
@@ -15,8 +15,9 @@
     <a>域名</a>
     <input type="text" id="domain" name="domain">
     <button id="btn-start"> 开始 </button>
-    <button id="btn-openDir" onclick="openDir()"> 打开OneForAll目录 </button>
-    <button id="btn-test"> 测试 </button>
+    <br><br>
+    <button id="btn-openResultDir" onclick="openDir('result')"> 打开Result目录 </button>
+    <button id="btn-openRootDir" onclick="openDir('root')"> 打开OneForAll目录 </button>
 </body>
 
 <script>
@@ -24,18 +25,19 @@
     let goby = parent.goby;
     //定义OneForAll API
     let OneForAll = parent.OneForAll;
-    //获取域名
 
-
-    //TODO 1、域名校验（空、格式等情况）
+    //1、域名校验（空、格式等情况）
     //绑定开始按钮
-    let btn1 = document.getElementById("btn-start");
-    btn1.onclick = function (){
+    let btn_start = document.getElementById("btn-start");
+    btn_start.onclick = function (){
+        //获取域名
         const domain = document.getElementById("domain").value;
+
         if (!checkDomain(domain)){
             alert('域名格式不正确，请检查格式');
             return;
         }
+
         //启动OneForAll
         startOneForAll(domain);
     }
