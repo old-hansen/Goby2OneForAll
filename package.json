@@ -1,7 +1,7 @@
 {
     "name": "OneForAll",
     "publisher": "Hansen",
-    "description": "Goby 2 OneForAll , OneForAll is a powerful subdomain integration tool ， 结合了DNS记录查询和MassDNS爆破的高效域名收集工具",
+    "description": "Goby 2 OneForAll , OneForAll is a powerful subdomain integration tool",
     "version": "0.1.0",
     "icon": "./src/assets/icon/domains.svg",
     "engines": "1.8.228",
@@ -12,13 +12,13 @@
             "oneforall.py" :{
                 "type": "string",
                 "default": null,
-                "description": "请输入 oneforall.py 的路径",
+                "description": "Please input path of 'oneforall.py'",
                 "fromDialog": true
             },
             "python3": {
                 "type": "string",
                 "default": "python3",
-                "description": "请输入在当前环境下的Python3或位置,也可以是绝对路径",
+                "description": "Please input path of 'Python3'",
                 "fromDialog": true
             }
         },
@@ -32,6 +32,9 @@
                 }
             ]
         }
+    },
+    "language": {
+        "CN": "src/assets/translate/CN/translate.json"
     },
     "scripts": {},
     "devDependencies": {},

@@ -1,0 +1,15 @@
+{
+  "description": "Goby 2 OneForAll,结合了DNS记录查询和MassDNS爆破的高效子域收集工具",
+  "contributes": {
+    "configuration": {
+      "oneforall.py": {
+        "description": "请输入 oneforall.py 的路径"
+      },
+      "python3": {
+        "description": "请输入在当前环境下的Python3或位置,也可以是绝对路径"
+      }
+    }
+  },
+  "readme":"./README.md",
+  "changelog":"./CHANGELOG.md"
+}
