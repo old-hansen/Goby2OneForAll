@@ -1,7 +1,7 @@
 {
     "name": "OneForAll",
     "publisher": "Hansen",
-    "description": "Goby 2 OneForAll , OneForAll is a powerful subdomain integration tool",
+    "description": "Goby2OneForAll , OneForAll is a powerful subdomain integration tool",
     "version": "0.1.0",
     "icon": "./src/assets/icon/domains.svg",
     "engines": "1.8.228",
@@ -12,13 +12,13 @@
             "oneforall.py" :{
                 "type": "string",
                 "default": null,
-                "description": "Please input path of 'oneforall.py'",
+                "description": "Please input path of oneforall.py",
                 "fromDialog": true
             },
             "python3": {
                 "type": "string",
                 "default": "python3",
-                "description": "Please input path of 'Python3'",
+                "description": "Please input path of Python3",
                 "fromDialog": true
             }
         },
