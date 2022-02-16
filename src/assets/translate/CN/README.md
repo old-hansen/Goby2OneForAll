@@ -15,7 +15,7 @@ cd OneForAll
 
 pip3 install -r requirements.txt
 
-python3 onforall.py version
+python3 oneforall.py version
 ```
 ---
 ## 2、路径配置
