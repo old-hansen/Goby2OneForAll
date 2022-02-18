@@ -4,20 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <title>Goby2OneForAll</title>
 </head>
 
 <!-- 引入jQuery -->
-<script src="../assets/js/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="../assets/js/index.js"></script>
 
 <body>
-    <a>域名</a>
-    <input type="text" id="domain" name="domain">
-    <button id="btn-start"> 开始 </button>
-    <br><br>
-    <button id="btn-openResultDir" onclick="openDir('result')"> 打开Result目录 </button>
-    <button id="btn-openRootDir" onclick="openDir('root')"> 打开OneForAll目录 </button>
+<div class="row">
+    <p class="display-1 text-center">OneForAll</p>
+</div>
+<div class="container-fluid">
+
+    <div class="input-group mb-3">
+        <span class="input-group-text text-dark">域名</span>
+        <input type="text" class="form-control" id="domain" placeholder="baidu.com">
+        <button type="button" class="btn btn-primary" id="btn-start"> 开始</button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">打开</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" onclick="openDir('result')">打开Result目录</a></li>
+                <li><a class="dropdown-item" onclick="openDir('root')">打开OneForAll目录</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 </body>
 
 <script>
@@ -29,11 +43,11 @@
     //1、域名校验（空、格式等情况）
     //绑定开始按钮
     let btn_start = document.getElementById("btn-start");
-    btn_start.onclick = function (){
+    btn_start.onclick = function () {
         //获取域名
         const domain = document.getElementById("domain").value;
 
-        if (!checkDomain(domain)){
+        if (!checkDomain(domain)) {
             alert('域名格式不正确，请检查格式');
             return;
         }
@@ -42,9 +56,5 @@
         startOneForAll(domain);
     }
 
-    //TODO 2、运行状态展示（方案1[Easy]、直接显示CMD窗口进行显示 2[Hard]、将命令行输出到页面，log日志保存本地）
-
-    //TODO 3、结果展示（咕咕咕...）
-    
 </script>
 </html>
