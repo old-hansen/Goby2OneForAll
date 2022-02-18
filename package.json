@@ -1,42 +1,42 @@
 {
-    "name": "OneForAll",
-    "publisher": "Hansen",
-    "description": "Goby2OneForAll , OneForAll is a powerful subdomain integration tool",
-    "version": "0.1.0",
-    "icon": "./src/assets/icon/domains.svg",
-    "engines": "1.8.228",
-    "initEvents": "",
-    "main": "./src/extension.js",
-    "contributes": {
-        "configuration": {
-            "oneforall.py" :{
-                "type": "string",
-                "default": null,
-                "description": "Please input path of oneforall.py",
-                "fromDialog": true
-            },
-            "python3": {
-                "type": "string",
-                "default": "python3",
-                "description": "Please input path of Python3",
-                "fromDialog": true
-            }
-        },
-        "views": {
-            "toolbar": [
-                {
-                    "command": "showView",
-                    "title": "OneForAll",
-                    "icon": "./src/assets/icon/domains.svg",
-                    "tips":"OneForAll"
-                }
-            ]
+  "name": "OneForAll",
+  "publisher": "Hansen",
+  "description": "Goby2OneForAll , OneForAll is a powerful subdomain integration tool",
+  "version": "0.1.0",
+  "icon": "./src/assets/icon/domains.svg",
+  "engines": "1.8.228",
+  "initEvents": "",
+  "main": "./src/extension.js",
+  "contributes": {
+    "configuration": {
+      "oneforall.py": {
+        "type": "string",
+        "default": null,
+        "description": "Please input path of oneforall.py",
+        "fromDialog": true
+      },
+      "python3": {
+        "type": "string",
+        "default": "python3",
+        "description": "Please input path of Python3",
+        "fromDialog": true
+      }
+    },
+    "views": {
+      "toolbar": [
+        {
+          "command": "showView",
+          "title": "OneForAll",
+          "icon": "./src/assets/icon/domains.svg",
+          "tips": "OneForAll"
         }
-    },
-    "language": {
-        "CN": "src/assets/translate/CN/translate.json"
-    },
-    "scripts": {},
-    "devDependencies": {},
-    "dependencies": {}
+      ]
+    }
+  },
+  "language": {
+    "CN": "src/assets/translate/CN/translate.json"
+  },
+  "scripts": {},
+  "devDependencies": {},
+  "dependencies": {}
 }

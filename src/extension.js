@@ -14,13 +14,13 @@ function activate(content) {
 
     class OneForAll {
 
-        constructor(){
-            
+        constructor() {
+
         }
 
-        init(){
+        init() {
             //检测python环境
-            if (Python_Path == null || Python_Path === ''){
+            if (Python_Path == null || Python_Path === '') {
                 goby.showErrorMessage('未配置Python3路径');
                 alert('未配置Python3路径');
                 return false;
@@ -33,52 +33,52 @@ function activate(content) {
             }
 
             let len = OneForAll_Path.length - 12;
-            Base_Path = OneForAll_Path.substring(0,len)
+            Base_Path = OneForAll_Path.substring(0, len)
 
             return true;
 
         }
 
-        getOS(){
+        getOS() {
             return os;
         }
 
-        getFS(){
+        getFS() {
             return fs;
         }
 
-        getCP(){
+        getCP() {
             return cp;
         }
 
-        getBasePath(){
+        getBasePath() {
             return Base_Path;
         }
 
-        getPython3Path(){
+        getPython3Path() {
             return Python_Path;
         }
 
-        getOneForAll(){
+        getOneForAll() {
             return OneForAll_Path;
         }
 
-        getOSType(){
+        getOSType() {
             return os_type;
         }
     }
 
 
-    if(!window.OneForAll){
+    if (!window.OneForAll) {
         window.OneForAll = new OneForAll();
     }
 
-    
+
     //显示工具首页
     goby.registerCommand('showView', function (content) {
 
         //初始化失败不弹出页面
-        if (!window.OneForAll.init()){
+        if (!window.OneForAll.init()) {
             return;
         }
         //设置主页html路径
@@ -86,7 +86,7 @@ function activate(content) {
         let url = path.join(__dirname, './page/index.html');
 
         //渲染页面
-        goby.showIframeDia(url, 'OneForAll', 600 , 300);
+        goby.showIframeDia(url, 'OneForAll', 600, 300);
     });
 }
 

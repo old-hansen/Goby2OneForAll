@@ -11,13 +11,13 @@ function startOneForAll(domain) {
 
     //获取系统函数
     let cp = parent.OneForAll.getCP();
-    
+
     //按照系统类型执行command
     let cmd = parent.OneForAll.getPython3Path() + ' ' + parent.OneForAll.getOneForAll() + ' --target ' + domain + ' run';
 
     if (parent.OneForAll.getOSType() === 'Windows_NT') {
         //windows
-        cmd =  'start cmd.exe /K ' + cmd;
+        cmd = 'start cmd.exe /K ' + cmd;
         cp.exec(cmd);
     } else if (parent.OneForAll.getOSType() === 'Darwin') {
         //mac
@@ -36,7 +36,7 @@ function openDir(path) {
 
     let openPath = parent.OneForAll.getBasePath();
 
-    if (path === 'result'){
+    if (path === 'result') {
         openPath += 'results';
     }
 
