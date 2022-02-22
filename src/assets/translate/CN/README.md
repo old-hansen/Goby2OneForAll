@@ -24,6 +24,8 @@ python默认已指定python3
 
 oneforall需要选择OneForAll目录中的oneforall.py文件
 
+完成配置后需要重启Goby来加载配置
+
 ---
 ## 3、代理及API配置（可选）
 From 官方wiki

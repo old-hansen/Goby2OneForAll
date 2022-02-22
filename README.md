@@ -24,6 +24,8 @@ python3 oneforall.py version
 
 'oneforall' need to set file path of 'oneforall.py' in the dir of OneForAll which you clone.
 
+When you finish this step , please reboot goby , then properties will be load.
+
 ---
 ## 3.Proxy and openAPI Properties(Optional)
 From Official wiki :

@@ -8,7 +8,9 @@
     <title>Goby2OneForAll</title>
 </head>
 
-<!-- 引入jQuery -->
+<!-- 引入jS -->
+<script src="../assets/js/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/jquery.csv.min.js"></script>
 <script src="../assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="../assets/js/index.js"></script>
 
@@ -22,6 +24,7 @@
         <span class="input-group-text text-dark">域名</span>
         <input type="text" class="form-control" id="domain" placeholder="baidu.com">
         <button type="button" class="btn btn-primary" id="btn-start"> 开始</button>
+        <button type="button" class="btn btn-primary" id="btn-reset"> 重置</button>
         <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">打开</button>
             <ul class="dropdown-menu">
@@ -30,6 +33,34 @@
             </ul>
         </div>
     </div>
+
+    <div id="resultTable" class="container-fluid">
+        <p>页面有限，仅展示部分常用字段，result目录可查看原始文件。</p>
+        <table id="result-table" class="table table-striped">
+            <!-- 表头 -->
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>url</th>
+                <th>subdomain</th>
+                <th>cname</th>
+                <th>ip</th>
+                <th>port</th>
+                <th>status</th>
+                <th>title</th>
+                <th>reason</th>
+                <th>addr</th>
+                <th>isp</th>
+            </tr>
+            </thead>
+            <!-- 数据展示 -->
+            <tbody>
+            <tr>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 </body>
@@ -44,6 +75,10 @@
     //绑定开始按钮
     let btn_start = document.getElementById("btn-start");
     btn_start.onclick = function () {
+        startOFA();
+    }
+
+    function startOFA() {
         //获取域名
         const domain = document.getElementById("domain").value;
 
@@ -52,8 +87,28 @@
             return;
         }
 
+        //判断本地是否存在已有数据，存在则提示是否打开已有文件，不存在则启动OneForAll
+        if (parent.OneForAll.getFS().existsSync(parent.OneForAll.getBasePath() + 'results/' + domain + '.csv')){
+            alert('文件已存在');
+            // return;
+        }
+
         //启动OneForAll
         startOneForAll(domain);
+
+        //执行完成后显示结果
+    }
+
+    let btn_test = document.getElementById("btn-test");
+
+    btn_test.onclick = function () {
+        //获取域名
+        const domain = document.getElementById("domain").value;
+
+        let html = csv2tables(domain);
+
+        $("#result-table tbody").html(html);
+
     }
 
 </script>

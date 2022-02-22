@@ -1,3 +1,5 @@
+const iconv = require("iconv-lite")
+
 function activate(content) {
 
     //获取系统函数
@@ -10,13 +12,10 @@ function activate(content) {
     let Python_Path = config.python3.default;
     let OneForAll_Path = config["oneforall.py"]["default"];
     let Base_Path = '';
+    let Result_Path = '';
 
 
     class OneForAll {
-
-        constructor() {
-
-        }
 
         init() {
             //检测python环境
@@ -34,9 +33,24 @@ function activate(content) {
 
             let len = OneForAll_Path.length - 12;
             Base_Path = OneForAll_Path.substring(0, len)
+            Result_Path = Base_Path + 'results\\';
 
             return true;
 
+        }
+
+        //读取csv
+        readCSV(path) {
+            let fileStr = fs.readFileSync(path, {encoding: 'binary'});
+            let buf = Buffer.from(fileStr, 'binary');
+            let str;
+            //(windows生成的数据为GBK编码，Linux及Mac是UTF-8),所以在编码上需要单独处理
+            if (os_type === 'Windows_NT'){
+                str = iconv.decode(buf, 'GBK');
+            }else {
+                str = iconv.decode(buf,'UTF-8');
+            }
+            return str;
         }
 
         getOS() {
@@ -53,6 +67,10 @@ function activate(content) {
 
         getBasePath() {
             return Base_Path;
+        }
+
+        getResultPath(){
+            return Result_Path;
         }
 
         getPython3Path() {
@@ -86,7 +104,7 @@ function activate(content) {
         let url = path.join(__dirname, './page/index.html');
 
         //渲染页面
-        goby.showIframeDia(url, 'OneForAll', 600, 300);
+        goby.showIframeDia(url, 'OneForAll', 800, 800);
     });
 }
 
