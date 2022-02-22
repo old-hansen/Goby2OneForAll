@@ -72,7 +72,7 @@ function csv2tables(domain) {
     let html = '';
 
     //通过jquery-csv读取csv避免引号和空数据处理不完全
-    var rows = $.csv.toArrays(data);
+    let rows = $.csv.toArrays(data);
 
     //处理每行数据(除第一行)
     for (let i = 1; i < rows.length; i++) {

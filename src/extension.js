@@ -33,7 +33,7 @@ function activate(content) {
 
             let len = OneForAll_Path.length - 12;
             Base_Path = OneForAll_Path.substring(0, len)
-            Result_Path = Base_Path + 'results\\';
+            Result_Path = Base_Path + 'results/';
 
             return true;
 
