@@ -17,17 +17,17 @@ function startOneForAll(domain) {
 
     parent.goby.showSuccessMessage('OneForAll已启动');
 
-    //使用同步方法
+    //只能使用异步方法，execSync同步方法会阻断主进程，直接把goby卡死
     if (parent.OneForAll.getOSType() === 'Windows_NT') {
         //windows
         cmd = 'start cmd.exe /K ' + cmd;
-        cp.execSync(cmd);
+        cp.exec(cmd);
     } else if (parent.OneForAll.getOSType() === 'Darwin') {
         //mac
-        cp.execSync(cmd);
+        cp.exec(cmd);
     } else if (parent.OneForAll.getOSType() === 'Linux') {
         //Linux
-        cp.execSync(`bash -c "${cmd}"`);
+        cp.exec(`bash -c "${cmd}"`);
     }
 
     //结果展示

@@ -61,6 +61,32 @@
         </table>
     </div>
 
+    <!-- 模态框 -->
+    <div class="modal" id="infoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">提示</h4>
+                    <button type="button" class="btn-close" onclick="$('#infoModal').hide();"></button>
+                </div>
+
+                <!-- 模态框内容 -->
+                <div class="modal-body">
+                    报告已存在，是否覆盖运行？
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btn-showHistory" >否，打开历史报告</button>
+                    <button type="button" class="btn btn-danger" id="btn-startOneForALl" >是，继续开始</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 
 </body>
@@ -71,45 +97,52 @@
     //定义OneForAll API
     let OneForAll = parent.OneForAll;
 
+    let domain;
+
     //1、域名校验（空、格式等情况）
     //绑定开始按钮
     let btn_start = document.getElementById("btn-start");
     btn_start.onclick = function () {
-        startOFA();
-    }
-
-    function startOFA() {
         //获取域名
-        const domain = document.getElementById("domain").value;
-
+        domain = $('#domain').val();
+        //校验域名格式
         if (!checkDomain(domain)) {
             alert('域名格式不正确，请检查格式');
             return;
         }
-
         //判断本地是否存在已有数据，存在则提示是否打开已有文件，不存在则启动OneForAll
         if (parent.OneForAll.getFS().existsSync(parent.OneForAll.getBasePath() + 'results/' + domain + '.csv')){
-            alert('文件已存在');
-            // return;
+            $('#infoModal').show();
         }
+    };
 
-        //启动OneForAll
-        startOneForAll(domain);
+    //模态框-显示历史记录
+    $('#btn-showHistory').click(function () {
+        //结果展示
+        let filepath = parent.OneForAll.getResultPath() + domain + '.csv';
+        if (parent.OneForAll.getFS().existsSync(filepath)) {
+            let html = csv2tables(domain);
+            $("#result-table tbody").html(html);
+        } else {
+            alert('文件读取失败,请检查result目录是否正确生成结果');
+        }
+        //关闭模态框
+        $('#infoModal').hide();
+    });
 
-        //执行完成后显示结果
-    }
+    //模态框-启动OneForAll
+    $('#btn-startOneForALl').click(
+       function (){
+           $('#infoModal').hide();
+           startOneForAll(domain);
+       }
+    );
 
-    let btn_test = document.getElementById("btn-test");
-
-    btn_test.onclick = function () {
-        //获取域名
-        const domain = document.getElementById("domain").value;
-
-        let html = csv2tables(domain);
-
-        $("#result-table tbody").html(html);
-
-    }
+    //重置按钮
+    $('#btn-reset').click(function () {
+        $('#domain').val(null);
+        $('#result-table tbody').html(null);
+    });
 
 </script>
 </html>
