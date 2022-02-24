@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="../assets/css/loading.css" rel="stylesheet" crossorigin="anonymous">
     <title>Goby2OneForAll</title>
 </head>
 
@@ -18,11 +19,12 @@
 <div class="row">
     <p class="display-1 text-center">OneForAll</p>
 </div>
+
 <div class="container-fluid">
 
     <div class="input-group mb-3">
         <span class="input-group-text text-dark">域名</span>
-        <input type="text" class="form-control" id="domain" placeholder="baidu.com">
+        <input type="text" class="form-control" id="domain" placeholder="gobies.org">
         <button type="button" class="btn btn-primary" id="btn-start"> 开始</button>
         <button type="button" class="btn btn-primary" id="btn-reset"> 重置</button>
         <div class="btn-group">
@@ -59,6 +61,13 @@
             </tr>
             </tbody>
         </table>
+        <div class="loading" id="div-loading" style="display: none">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 
     <!-- 模态框 -->
@@ -113,6 +122,9 @@
         //判断本地是否存在已有数据，存在则提示是否打开已有文件，不存在则启动OneForAll
         if (parent.OneForAll.getFS().existsSync(parent.OneForAll.getBasePath() + 'results/' + domain + '.csv')){
             $('#infoModal').show();
+        }else{
+            $('#result-table tbody').html(null);
+            startOneForAll(domain,false)
         }
     };
 
@@ -134,7 +146,9 @@
     $('#btn-startOneForALl').click(
        function (){
            $('#infoModal').hide();
-           startOneForAll(domain);
+           $('#result-table tbody').html(null);
+           startOneForAll(domain,true);
+
        }
     );
 

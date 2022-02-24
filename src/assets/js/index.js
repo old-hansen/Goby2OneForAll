@@ -7,39 +7,78 @@ function checkDomain(domain) {
 }
 
 // 运行OneForAll
-function startOneForAll(domain) {
+function startOneForAll(domain, historyFile) {
 
     //获取系统函数
     let cp = parent.require('child_process');
+    let cp_state;
 
     //按照系统类型执行command
     let cmd = parent.OneForAll.getPython3Path() + ' ' + parent.OneForAll.getOneForAll() + ' --target ' + domain + ' run';
 
     parent.goby.showSuccessMessage('OneForAll已启动');
 
-    //只能使用异步方法，execSync同步方法会阻断主进程，直接把goby卡死
-    if (parent.OneForAll.getOSType() === 'Windows_NT') {
-        //windows
-        cmd = 'start cmd.exe /K ' + cmd;
-        cp.exec(cmd);
-    } else if (parent.OneForAll.getOSType() === 'Darwin') {
-        //mac
-        cp.exec(cmd);
-    } else if (parent.OneForAll.getOSType() === 'Linux') {
-        //Linux
-        cp.exec(`bash -c "${cmd}"`);
+    $('#div-loading').show();
+    $('#btn-start').attr("disabled",true);
+    $('#btn-reset').attr("disabled",true);
+
+    //先处理已存在的报告
+    if (historyFile){
+        let originPath = parent.OneForAll.getResultPath() + domain + '.csv';
+        parent.OneForAll.getFS().rename(originPath , originPath + '.bak',function (err){});
     }
 
-    //结果展示
-    let filepath = parent.OneForAll.getResultPath() + domain + '.csv';
-    alert(filepath)
-    if (parent.OneForAll.getFS().existsSync(filepath)) {
-        alert('任务完成')
-        let html = csv2tables(domain);
-        $("#result-table tbody").html(html);
-    } else {
-        alert('任务完成，但未生成报告')
-    }
+    /**
+     由于Node的特性，只能使用异步方法，execSync同步方法会阻断主进程，直接把goby卡死
+     */
+    cp_state = cp.exec(cmd);
+    // if (parent.OneForAll.getOSType() === 'Windows_NT') {
+    //
+    //     //windows
+    //     //显示cmd
+    //     // cmd = 'start cmd.exe /K ' + cmd;
+    //     cp_state = cp.exec(cmd);
+    // } else if (parent.OneForAll.getOSType() === 'Darwin') {
+    //     //mac
+    //     cp_state = cp.exec(cmd);
+    // } else if (parent.OneForAll.getOSType() === 'Linux') {
+    //     //Linux
+    //     cp_state = cp.exec(`bash -c "${cmd}"`);
+    // }
+
+    //对子进程进行状态处理
+    //正常退出
+    cp_state.on('exit', (code) => {
+        //任务正常结束
+        if (code != null){
+
+        }
+    });
+
+    //异常退出
+    cp_state.on('error',(code) =>{
+        if (code != null){
+            alert('任务执行时异常了，请检查OneForAll配置是否修改正确');
+        }
+    });
+
+    //完全退出
+    cp_state.on('close', (code) => {
+        //结果展示
+        $('#div-loading').hide();
+        let filepath = parent.OneForAll.getResultPath() + domain + '.csv';
+        if (parent.OneForAll.getFS().existsSync(filepath)) {
+            alert('任务完成')
+            let html = csv2tables(domain);
+            $("#result-table tbody").html(html);
+            $('#btn-start').attr("disabled",false);
+            $('#btn-reset').attr("disabled",false);
+        } else {
+            alert('任务完成，但未生成报告')
+        }
+        //后续可以加入一些数据处理类型的逻辑
+        console.log(`close child process exited with code ${code}`);
+    });
 
 }
 
