@@ -26,25 +26,19 @@ function startOneForAll(domain, historyFile) {
     if (historyFile){
         let originPath = parent.OneForAll.getResultPath() + domain + '.csv';
         parent.OneForAll.getFS().rename(originPath , originPath + '.bak',function (err){});
+    }else{
+        //判断是否存在results目录，否则第一次使用异常
+        let dirExist  = parent.OneForAll.getFS().existsSync(parent.OneForAll.getResultPath());
+        if (!dirExist){
+            parent.OneForAll.getFS().mkdirSync(parent.OneForAll.getResultPath());
+        }
     }
 
     /**
      由于Node的特性，只能使用异步方法，execSync同步方法会阻断主进程，直接把goby卡死
      */
     cp_state = cp.exec(cmd);
-    // if (parent.OneForAll.getOSType() === 'Windows_NT') {
-    //
-    //     //windows
-    //     //显示cmd
-    //     // cmd = 'start cmd.exe /K ' + cmd;
-    //     cp_state = cp.exec(cmd);
-    // } else if (parent.OneForAll.getOSType() === 'Darwin') {
-    //     //mac
-    //     cp_state = cp.exec(cmd);
-    // } else if (parent.OneForAll.getOSType() === 'Linux') {
-    //     //Linux
-    //     cp_state = cp.exec(`bash -c "${cmd}"`);
-    // }
+    //cmd = 'start cmd.exe /K ' + cmd;
 
     //对子进程进行状态处理
     //正常退出
@@ -117,17 +111,30 @@ function csv2tables(domain) {
     for (let i = 1; i < rows.length; i++) {
         //处理列数据
         let col = rows[i];
+
+        //特殊行去重
+        let col7 = col[7].split(',');
+        col7 = [...new Set(col7)];
+
+        let col8 = col[8].split(',');
+        col8 = [...new Set(col8)];
+
+        let col19 = col[19].split(',');
+        col19 = [...new Set(col19)];
+
+        let col20 = col[20].split(',');
+        col20 = [...new Set(col20)];
+
+        //生成最终页面
         html += `<tr>
-                  <!--id-->
-                  <td>${col[0]}</td>
                   <!--url-->
                   <td>${col[4]}</td>
                   <!--subdomain-->
                   <td>${col[5]}</td>
                   <!--cname-->
-                  <td>${col[7]}</td>
+                  <td>${col7}</td>
                   <!--ip-->
-                  <td>${col[8]}</td>
+                  <td>${col8}</td>
                   <!--port-->
                   <td>${col[11]}</td>
                   <!--status-->
@@ -137,9 +144,9 @@ function csv2tables(domain) {
                   <!--reason-->
                   <td>${col[13]}</td>
                   <!--addr-->
-                  <td>${col[19]}</td>
+                  <td>${col19}</td>
                   <!--isp-->
-                  <td>${col[20]}</td>
+                  <td>${col20}</td>
                 </tr>`
     }
     return html;

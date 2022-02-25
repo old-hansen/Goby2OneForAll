@@ -26,11 +26,18 @@ python3 oneforall.py version
 
 When you finish this step , please reboot goby , then properties will be load.
 
+![Alt text](src/assets/img/setting.gif)
+
 ---
 ## 3.Proxy and openAPI Properties(Optional)
 From Official wiki :
 
 The CLI only provide some common parameters. For more configuration, please read setting.py. If you have any suggestions, welcome feedback. Some modules need access API (most of which are freely available after registered accounts). If you need , please go to api.py to configure the API. If not used, just ignore the error message. (For module detailes, please read collection module description)
 
+
 ---
-PS: Other advanced usage you can find it in OneForAll wiki by GitHub , this plugin just use for call and visualization.
+## 4.Preview
+![Alt text](src/assets/img/running.gif)
+
+---
+PS: First, please make sure OneForAll can be working. Other advanced usage you can find it in OneForAll wiki by GitHub , this plugin just use for call and visualization.
