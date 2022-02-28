@@ -1,4 +1,5 @@
 const iconv = require("iconv-lite")
+const os = require("os");
 
 function activate(content) {
 
@@ -9,10 +10,10 @@ function activate(content) {
     let os_type = os.type();
     let cp = require('child_process');
 
-    let Python_Path = config.python3.default;
-    let OneForAll_Path = config["oneforall.py"]["default"];
-    let Base_Path = '';
-    let Result_Path = '';
+    let Python_Path;
+    let OneForAll_Path;
+    let Base_Path;
+    let Result_Path;
 
 
     class OneForAll {
@@ -86,14 +87,18 @@ function activate(content) {
         }
     }
 
-
     if (!window.OneForAll) {
         window.OneForAll = new OneForAll();
     }
 
-
     //显示工具首页
     goby.registerCommand('showView', function (content) {
+
+        //重启Dia即可加载到配置文件
+        Python_Path = config.python3.default;
+        // alert(Python_Path)
+        OneForAll_Path = config["oneforall.py"]["default"];
+        // alert(OneForAll_Path)
 
         //初始化失败不弹出页面
         if (!window.OneForAll.init()) {

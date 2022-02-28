@@ -24,9 +24,9 @@ python默认已指定python3
 
 oneforall需要选择OneForAll目录中的oneforall.py文件
 
-完成配置后需要重启Goby来加载配置
+完成配置后重新打开OneForAll窗口，新的配置就会自动载入
 
-![Alt text](../../../../src/assets/img/setting.gif)
+![Setting](https://s3.bmp.ovh/imgs/2022/02/02e9359eb5807366.gif)
 
 ---
 ## 3、代理及API配置（可选）
@@ -37,7 +37,7 @@ From 官方wiki
 
 ---
 ## 4.预览
-![Alt text](../../../../src/assets/img/running.gif)
+![Preview](https://s3.bmp.ovh/imgs/2022/02/d8156f709f750a5a.gif)
 
 ---
-PS: 第一次使用请确认OneForAll可以正常运行，其余高级用法请参考git中的wiki，本插件只负责联动及可视化。
+PS: 第一次使用请确认OneForAll可以正常运行，其余高级用法请参考OneForAll项目中的wiki，本插件只负责联动及可视化。

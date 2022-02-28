@@ -100,6 +100,7 @@ function openDir(path) {
 
 }
 
+//csv转换为tables标签内容
 function csv2tables(domain) {
     let data = parent.OneForAll.readCSV(parent.OneForAll.getBasePath() + 'results/' + domain + '.csv');
     let html = '';

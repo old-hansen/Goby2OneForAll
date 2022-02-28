@@ -24,9 +24,9 @@ python3 oneforall.py version
 
 'oneforall' need to set file path of 'oneforall.py' in the dir of OneForAll which you clone.
 
-When you finish this step , please reboot goby , then properties will be load.
+When you finish this step , please reopen OneForAll window, then properties will be load.
 
-![Alt text](src/assets/img/setting.gif)
+![Setting](https://s3.bmp.ovh/imgs/2022/02/02e9359eb5807366.gif)
 
 ---
 ## 3.Proxy and openAPI Properties(Optional)
@@ -37,7 +37,7 @@ The CLI only provide some common parameters. For more configuration, please read
 
 ---
 ## 4.Preview
-![Alt text](src/assets/img/running.gif)
+![Preview](https://s3.bmp.ovh/imgs/2022/02/d8156f709f750a5a.gif)
 
 ---
-PS: First, please make sure OneForAll can be working. Other advanced usage you can find it in OneForAll wiki by GitHub , this plugin just use for call and visualization.
+PS: First, please make sure OneForAll can be working. Other advanced usage you can find OneForAll wiki at GitHub , this plugin just use for call and visualization.
