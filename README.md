@@ -32,8 +32,7 @@ When you finish this step , please reopen OneForAll window, then properties will
 ## 3.Proxy and openAPI Properties(Optional)
 From Official wiki :
 
-The CLI only provide some common parameters. For more configuration, please read setting.py. If you have any suggestions, welcome feedback. Some modules need access API (most of which are freely available after registered accounts). If you need , please go to api.py to configure the API. If not used, just ignore the error message. (For module detailes, please read collection module description)
-
+*The CLI only provide some common parameters. For more configuration, please read setting.py. If you have any suggestions, welcome feedback. Some modules need access API (most of which are freely available after registered accounts). If you need , please go to api.py to configure the API. If not used, just ignore the error message. (For module detailes, please read collection module description)*
 
 ---
 ## 4.Preview
