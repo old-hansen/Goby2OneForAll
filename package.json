@@ -37,6 +37,7 @@
     "CN": "src/assets/translate/CN/translate.json"
   },
   "scripts": {},
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "iconv-lite": "^0.6.3"
+  }
 }

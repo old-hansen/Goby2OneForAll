@@ -8,3 +8,6 @@ Finish 1.0.0 at 25th Feb , 2022 , Add CSV analysis , result view and some functi
 
 ## 1.0.1 - 28th Feb, 2022 Hansen
 Update Gif source.
+
+## 1.0.2 - 2nd Mar, 2022 Hansen
+fix install fail problem.

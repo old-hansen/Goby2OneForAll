@@ -1,6 +1,9 @@
 # Fast Guide
 
 ## 1.Install 'OneForAll'
+[![OneForAll](https://badgen.net/badge/icon/OneForAll/blue?icon=github&label)](https://github.com/shmilylty/OneForAll)
+[![OneForAll](https://badgen.net/badge/icon/Goby2OneForAll/blue?icon=github&label)](https://github.com/old-hansen/Goby2OneForAll)
+
 
 `Base Environment : python3 , pip`
 

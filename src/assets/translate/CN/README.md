@@ -1,6 +1,8 @@
 # 快速开始
 
 ## 1、OneForAll的安装
+[![OneForAll](https://badgen.net/badge/icon/OneForAll/blue?icon=github&label)](https://github.com/shmilylty/OneForAll)
+[![OneForAll](https://badgen.net/badge/icon/Goby2OneForAll/blue?icon=github&label)](https://github.com/old-hansen/Goby2OneForAll)
 
 `基础环境 : python3 , pip`
 
