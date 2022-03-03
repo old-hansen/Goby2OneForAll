@@ -2,7 +2,7 @@
   "name": "OneForAll",
   "publisher": "Hansen",
   "description": "Goby2OneForAll , OneForAll is a powerful subdomain integration tool",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icon": "./src/assets/icon/domains.svg",
   "engines": "1.8.228",
   "initEvents": "",
