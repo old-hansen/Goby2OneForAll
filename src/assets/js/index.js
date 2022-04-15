@@ -68,7 +68,7 @@ function startOneForAll(domain, historyFile) {
             $('#btn-start').attr("disabled",false);
             $('#btn-reset').attr("disabled",false);
         } else {
-            alert('任务完成，但未生成报告，请检查python及pip是否配置正确')
+            alert('任务完成，但未生成报告，请检查python、pip及网络是否配置正确')
         }
         //后续可以加入一些数据处理类型的逻辑
         console.log(`close child process exited with code ${code}`);
